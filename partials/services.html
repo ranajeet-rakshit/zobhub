@@ -1,0 +1,14 @@
+<img class='img-responsive' src="images/header.png">
+<div ng-controller='HomeController' class='container'>
+	<div class='services' style='text-align:center;' id='services'><h1>Services</h1>
+	<div class='panel-group' ng-repeat='service in services' style='margin-top:15px;'>
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"><i ng-class="service.icon" style='font-size:3em;'></i></div>
+	      <div class="panel-body">
+	      	<h3>{{service.title}}</h3>
+	      	<p>{{service.description}}</p>
+	      </div>
+	    </div>
+	</div>
+</div>
+</div>

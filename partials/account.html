@@ -1,0 +1,145 @@
+<img class='img-responsive' src="images/header.png">
+<div ng-controller='ProfileController' class='container'>
+    <h1>Your profile</h1>
+<div class='row'>
+	<div class="col-sm-2"></div>
+
+	<div class="col-sm-8">
+    <ul class="list-group">
+	  <li class="list-group-item active">
+	    <h4 class="list-group-item-heading">{{currentUser.first_name}} {{currentUser.last_name}}</h4>
+	    <p class="list-group-item-text">View and manage your profile</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Email: {{currentUser.email}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Phone: {{currentUser.phone}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Skills: {{currentUser.skills}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Experience: {{currentUser.experience}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Availability: {{currentUser.availability}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Description: {{currentUser.description}}</p>
+	  </li>
+	  <li class="list-group-item">
+	    <p class="list-group-item-text">Passport number: {{currentUser.passport_number}}</p>
+	  </li>
+	</ul>
+	<button class='btn btn-primary' data-toggle="modal" data-target="#profileModal">Edit Profile</button>
+	<button class='btn btn-warn' data-toggle="modal" data-target="#resumeModal">Update your resume</button>
+	<button class='btn btn-danger'>Change password</button>
+	</div>
+
+	<div class="col-sm-2"></div>	
+</div>
+
+<div class='row'>
+	<h3>Your applied jobs</h3>
+	<div class='col-sm-2'></div>
+	
+		<div class='col-sm-8'>
+			<div class="panel-group" ng-repeat='appliedJob in appliedJobs'>
+				<div class="panel panel-primary">
+					<div class='panel-heading'>
+						<h3>Job Title: {{appliedJob.jobTitle}}</h3>
+						<span class='jobCode'>Job Code: {{appliedJob.job_code}}</span>
+					</div>
+					<div class="panel-body">
+						<p>Description: {{appliedJob.jobDesc}}</p>
+						<ul>
+							<li>Company: {{appliedJob.company}}</li>
+							<li>Location: {{appliedJob.location}}</li>
+							<li>Experience: {{appliedJob.experience}}</li>
+							<li>Basic Salary: {{appliedJob.basic_salary}}</li>
+							<li>Open Positions: {{appliedJob.open_position}}</li>
+							<li>Interview Date: {{appliedJob.interview_date}}</li>
+							<li>Minimum Qualification: {{appliedJob.qualification}}</li>
+						</ul>
+					</div>
+					<div class='panel-footer' style='text-align:right;'>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<div class='col-sm-2'></div>
+</div>
+
+<div class="modal fade" id="profileModal" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Update your profile</h4>
+    </div>
+    <div class="modal-body">
+      <form name="form" role="form">
+		    <div class="form-group">
+		        <label for="email">Phone</label>
+		        <input type="text" name="phone" id="phone" class="form-control" ng-model="user.phone" />
+		    </div>
+		    <div class="form-group">
+		        <label for="skills">Skills</label>
+		        <input type="text" name="skills" id="skills" class="form-control" ng-model="user.skills" />
+		    </div>
+		    <div class="form-group">
+		        <label for="description">Description</label>
+		        <textarea name="description" id="description" class="form-control" ng-model="user.description"></textarea>
+		    </div>
+		    <div class="form-group">
+		        <label for="skills">Experience</label>
+		        <input type="text" name="experience" id="experience" class="form-control" ng-model="user.experience" />
+		    </div>
+		    <div class="form-group">
+		        <label for="skills">Availability</label>
+		        <input type="text" name="availability" id="availability" class="form-control" ng-model="user.availability" />
+		    </div>
+		</form>
+    </div>
+    <div class="modal-footer">
+    	<button class="btn btn-primary" ng-click='update()'>Update</button>
+		<button class='btn btn-danger' class="close" data-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+<div class="modal fade" id="resumeModal" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Upload updated resume</h4>
+    </div>
+    <div class="modal-body">
+      <form name="form" role="form">
+		    <div class="form-group">
+		    	<button class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+			accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" ngf-max-size="5MB" required>Upload updated resume</button><span style="margin-right:20px;">{{file.name}}</span>
+		    </div>
+		</form>
+    </div>
+    <div class="modal-footer"><span calss='alert'>{{loginSuccess}}</span>
+    	<button class="btn btn-primary" ng-click='updateResume()'>Submit</button>
+		<button class='btn btn-danger' class="close" data-dismiss="modal">Cancel</button>
+    </div>
+  </div>
+  
+</div>
+</div>
+
+</div>

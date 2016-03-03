@@ -1,0 +1,127 @@
+<img class='img-responsive' src="images/header.png">
+<div ng-controller='RegisterController' class='container'>
+	<h1>Register with us for free, and get the right <u>Job</u></h1>
+	<h4>All fields are mandatory</h4>
+	<form class="form-horizontal" role="form" name='form'>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="email">Email:</label>
+	    <div class="col-sm-10">
+	      <input type="email" class="form-control" id="email" ng-model='user.email' placeholder="Enter email" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="pwd">Password:</label>
+	    <div class="col-sm-10"> 
+	      <input type="password" class="form-control" id="pwd" ng-model='user.pwd' placeholder="Enter password" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="re_pwd">Re-enter Password:</label>
+	    <div class="col-sm-10"> 
+	      <input type="password" class="form-control" id="pwd" ng-model='user.re_pwd' placeholder="Re-enter password" required>
+	      <span ng-show="user.pwd!=user.re_pwd&&user.re_pwd!=''" class="alert alert-danger">Password does not match!</span>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="fName">First name:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="fName" ng-model='user.fName' placeholder="Enter First Name" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="lName">Last name:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="lName" ng-model='user.lName' placeholder="Enter Last Name" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="phone">Phone number:</label>
+	    <div class="col-sm-10"> 
+	      <input type="tel" class="form-control" id="phone" ng-model='user.phone' placeholder="Enter phone number" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="passport">Passport number:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="passport" ng-model='user.passport' placeholder="Enter Passport Number" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="skills">Your skills:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="skills" ng-model='user.skills' placeholder="Enter your skills (separated with commas)" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="experience in years">Experience:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="experience" ng-model='user.experience' placeholder="Enter experience in years" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="availability">Availability:</label>
+	    <div class="col-sm-10"> 
+	      <input type="text" class="form-control" id="availability" ng-model='user.availability' placeholder="ready to fly within how many days" required>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="control-label col-sm-2" for="availability">Description:</label>
+	    <div class="col-sm-10"> 
+	      <textarea class="form-control" id="description" ng-model='user.desc' placeholder="Enter a briefe description of your self.." required></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group"> 
+	    <div class="col-sm-offset-2 col-sm-10">
+    	<button class="btn btn-default" ngf-select ng-model="file" name="file" ngf-pattern="'application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+			accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" ngf-max-size="5MB" required>Upload Resume</button><span>{{file.name}}</span>
+	      <button class="btn btn-primary" ng-disabled="form.$invalid" style='margin-left:20px;' ng-click='upload()'>Submit</button>
+	    </div>
+	  </div>
+	</form>
+	<!-- <div layout='column' class='md-inline-form'>
+		<md-content layout-gt-sm='row' layout-padding>
+			<div>
+				<span>Your login details</span>
+				<md-input-container>
+					<label>Email</label>
+					<input type='email' ng-model='user.email'><span ng-show="regResponse">{{regResponse}}</span>
+				</md-input-container>
+				<md-input-container>
+					<label>Password</label>
+					<input type='password' ng-model='user.pwd'>
+				</md-input-container>
+				<md-input-container>
+					<label>Re-enter password</label>
+					<input type='password' ng-model='user.pwd'>
+				</md-input-container>
+				<md-input-container>
+					<label>First name</label>
+					<input type='text' ng-model='user.fName'>
+				</md-input-container>
+				<md-input-container>
+					<label>Last name</label>
+					<input type='text' ng-model='user.lName'>
+				</md-input-container>
+				<md-input-container>
+					<label>Phone number</label>
+					<input type='tel' ng-model='user.phone'>
+				</md-input-container>
+				<md-input-container>
+					<label>Passport number</label>
+					<input type='text' ng-model='user.passport'>
+				</md-input-container>
+			<md-input-container>
+			<md-button class="md-raised" ngf-select ng-model="file" name="file" ngf-pattern="'application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+				accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" ngf-max-size="5MB">Upload Resume {{file.name}}</md-button>
+			</md-content>
+			</md-input-container>
+			<md-input-container>
+			<md-button class='md-raised' ng-click='upload()'>Submit</md-button>
+			</md-input-container>
+
+			</div>
+	</div> -->
+
+	
+
+</div>

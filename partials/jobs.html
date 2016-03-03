@@ -1,0 +1,79 @@
+<img class='img-responsive' src="images/header.png">
+<div ng-controller='JobsController' class='container'>
+	<h1>New Jobs are posted here. Find the right job for you..</h1>
+	<span ng-show='notLoggedIn'>Please login to applying for any job.</span>
+
+<div class="panel-group" ng-repeat='job in jobs'>
+	<div class="panel panel-primary">
+		<div class='panel-heading'>
+			<h3>Job Title: {{job.jobTitle}}</h3>
+			<span class='jobCode' ng-hide='job.job_code=="NA"'>Job Code: {{job.job_code}}</span>
+		</div>
+		<div class="panel-body">
+			<p>Description: {{job.jobDesc}}</p>
+			<ul>
+				<li>Company: {{job.company}}</li>
+				<li>Location: {{job.location}}</li>
+				<li ng-hide="job.experience=='NA'">Experience: {{job.experience}}</li>
+				<li>Basic Salary: {{job.basic_salary}}</li>
+				<li>Open Positions: {{job.open_position}}</li>
+				<li>Interview Date: {{job.interview_date}}</li>
+				<li>Minimum Qualification: {{job.qualification}}</li>
+			</ul>
+		</div>
+		<div class='panel-footer' style='text-align:right;'>
+			<span ng-show='job.currentUserApplied'>You have already applied for this job.</span>
+	      	<button ng-disabled='notLoggedIn||job.currentUserApplied' class='btn btn-primary' ng-click='applyJob(job.jobID)'>Apply</button>
+		</div>
+	</div>
+</div>
+<!-- 
+<div>
+	<div flex-xs flex-gt-xs="50" layout="column" ng-repeat='job in jobs'>
+		<div class='job_card'>
+			<div style='margin:20px 20px;'>
+				<h4>Job Title: {{job.jobTitle}}</h4>
+				<p>Job Description: {{job.jobDesc}}</p>
+				<ul>
+					<li>Company: {{job.company}}</li>
+					<li>Location: {{job.location}}</li>
+					<li>Experience: {{job.experience}}</li>
+					<li>Basic Salary: {{job.basic_salary}}</li>
+					<li>Open Positions: {{job.open_position}}</li>
+					<li>Interview Date: {{job.interview_date}}</li>
+					<li>Minimum Qualification: {{job.qualification}}</li>
+				</ul>
+				<span ng-show='job.currentUserApplied'>You have already applied for this job.</span>
+	      		<button disabled='notLoggedIn||job.currentUserApplied' class='btn btn-primary' ng-click='applyJob(job.jobID)'>Apply</button>
+			</div>
+		</div>
+	</div>
+</div>
+ -->	
+
+	<!-- <div flex-xs flex-gt-xs="50" layout="column">
+	  <md-card ng-repeat='job in jobs'>
+	    <md-card-title>
+	      <md-card-title-text>
+	        <span class="md-headline">{{job.jobTitle}}</span><span style='border:1px solid black;background-color:yellow;margin-left:20px;'>Job code{{job.job_code}}</span><br>
+	        <span class="md-subhead">{{job.company}}</span><br>
+	        <span class="md-subhead" style='width:200px;'>{{job.jobDesc}}</span><br>
+	        <span class="md-subhead">{{job.location}}</span><br>
+	        <span class="md-subhead">Experience: {{job.experience}}</span><br>
+	        <span class="md-subhead">Basic Salary: {{job.basic_salary}}</span><br>
+	        <span class="md-subhead">Open Positions: {{job.open_position}}</span><br>
+	        <span class="md-subhead">Interview Date: {{job.interview_date}}</span><br>
+	        <span class="md-subhead">Qualification: {{job.quailfication}}</span>
+	      </md-card-title-text>
+	      <md-card-title-media>
+	        <div class="md-media-sm card-media"></div>
+	      </md-card-title-media>
+	    </md-card-title>
+	    <md-card-actions layout="row" layout-align="end center">
+	    	<span ng-show='job.currentUserApplied'>You have already applied for this job.</span>
+	      <md-button ng-disabled='notLoggedIn||job.currentUserApplied' class='md-raised md-primary' ng-click='applyJob(job.jobID)'>Apply</md-button>
+	    </md-card-actions>
+	  </md-card>
+	</div> -->
+
+</div>

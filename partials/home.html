@@ -1,0 +1,171 @@
+<div ng-controller='HomeController' class='container'>
+	<!-- <div id='slides_control' style='margin-top:31px;'>
+		<div>
+			<carousel interval='myInterval'>
+				<slide ng-repeat='slide in slides' active='slide.active'>
+					<img ng-src="{{slide.slide_url}}">
+					<div class="carousel-caption"><h4>{{slide.alt}}</h4></div>
+				</slide>
+			</carousel>
+		</div>
+	</div> -->
+
+	<div class='row' style='margin-top:-20px;margin-left:-30px!important;margin-right:-30px!important;'>
+		<div class='col-sm-12' style=>
+			<carousel interval='myInterval'>
+				<slide ng-repeat='slide in slides' active='slide.active'>
+					<div class="carousel-caption"><h2>{{slide.alt}}</h2></div>
+					<img ng-src="{{slide.slide_url}}">
+				</slide>
+			</carousel>
+		</div>
+	</div>
+
+<!-- ABOUT SECTION -->
+	<div class='row about' id='about'>
+		<div class='row'>
+			<div class='row'>
+				<div class='col-sm-12' style="text-align:center;">
+					<h1>ABOUT</h1>
+					<p>{{about.description}}</p>
+				</div>
+			</div>
+
+			<div class='row' style='margin-left:50px;'>
+				<div class='col-sm-8'>
+					<h3>Biography</h3>
+					<p>{{about.biography}}</p>
+				</div>
+				<div class='col-sm-4'>
+					<h3>Personal Info</h3>
+					<div><i class="fa fa-phone"></i> {{about.phone}}</div>
+					<div><i class="fa fa-map-marker"></i> {{about.address}}</div>
+					<div><i class="fa fa-envelope"></i></span> {{about.email}}</div>
+					<div><i class="fa fa-internet-explorer"></i> {{about.website}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- END OF ABOUT SECTION -->
+
+<!-- SERVICE SECTION
+	<div class='row'>
+		<div class='row'>
+			<div class='col-sm-12' style='text-align:center;'>
+				<h1>Services</h1>
+			</div>
+		</div>
+		<div class='row' ng-repeat='service in services' style='float:left;margin:20px 20px;' id='service'>
+			<div style='text-align:center;'>
+				<i ng-class="service.icon" style='font-size:3em;'></i>
+				<h3>{{service.title}}</h3>
+				<p>{{service.description}}</p>
+			</div>
+		</div>
+	</div>
+END OF SERVICE SECTION -->
+<!-- SERVICE PANEL -->
+<div class='services' style='text-align:center;' id='services'><h1>Services</h1>
+	<div class='panel-group' ng-repeat='service in services' style='margin-top:15px;'>
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"><i ng-class="service.icon" style='font-size:3em;'></i></div>
+	      <div class="panel-body">
+	      	<h3>{{service.title}}</h3>
+	      	<p>{{service.description}}</p>
+	      </div>
+	    </div>
+	</div>
+</div>
+<!-- SERVICE PANEL END-->
+
+<!-- TEAM SECTION -->
+	<div class='row' style='text-align:center;' id='team'>
+		<div class='row'>
+			<div class='col-sm-12'>
+				<h1>Our Team</h1>
+				<span>Meet our team members</span>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-sm-3 team_member'>
+				<img src="images/team/manisha.jpg" class='teamPic'>
+				<h3>MANISHA YADAV</h3>
+				<h4>BUSINESS DEVELOPMENT MANAGER</h4>
+				<p>Manisha's total tenure is more than 15 years in business development domain. Before joining zobhub, she has been associated with EXL and IBM.</p>
+			</div>
+			<div class='col-sm-3 team_member'>
+				<img src="images/team/devendra.jpg" class='teamPic'>
+				<h3>DEVENDRA SINGH</h3>
+				<h4>HEAD OF IT DEPARTMENT</h4>
+				<p>Devendra is a B.Tech (Computer Science & Engineering) topper from YMCA, Faridabad. He is a young dynamic professional and maestro of his belt.</p>
+			</div>
+			<div class='col-sm-3 team_member'>
+				<img src="images/team/yogendra.jpg" class='teamPic'>
+				<h3>YOGENDRA KUMAR</h3>
+				<h4>HEAD OF MIS DEPARTMENT</h4>
+				<p>Yogendra is younker of his realm and having good enough experience in MIS Domain. Yogendra has worked with Shopclues and Healthkart.</p>
+			</div>
+			<div class='col-sm-3 team_member'>
+				<img src="images/team/swati.jpg" class='teamPic'>
+				<h3>SWATI SINGH</h3>
+				<h4>ASSISTANT MANAGER – RECRUITMENT</h4>
+				<p>Swati, has got potential to work under any circumstances and gale. She has showed her spunk of requirement process for grubber in any belt.</p>
+			</div>
+		</div>
+	</div>
+<!-- END OF TEAM SECTION -->
+
+<!-- CONTACT US FORM -->
+<div class="row" id='contact'>
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Contact us</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- END OF CONTACT US FORM -->
+</div>

@@ -1,0 +1,109 @@
+/*body{
+background: #a7cfdf;
+background: -moz-linear-gradient(top,  #a7cfdf 0%, #23538a 100%);
+background: -webkit-linear-gradient(top,  #a7cfdf 0%,#23538a 100%);
+background: linear-gradient(to bottom,  #a7cfdf 0%,#23538a 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 );
+}*/
+
+
+/*.job_card{
+	width: 60%;
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	background-color: #b3b3cc;
+	opacity: 1;
+	border: 1px solid grey;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+*/
+
+body{
+	padding-top: 50px;
+	background-color: lightgray!important;
+}
+#slides_control > div{
+  height: 600px;
+}
+img{
+  margin:auto;
+  width: 100%;
+  height: 600px;
+}
+#slides_control {
+  position:absolute;
+  width: 100%;
+  height: 600px;
+  left:50%;
+  top:20px;
+ margin-left:-600px;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+.carousel-caption{
+	top: 30%;
+	transform: translateY(-30%);
+	bottom: initial;
+}
+
+.about{
+	margin-top: 15px;
+	box-shadow: 5px 5px 5px #888888!important;
+	height:350px;
+	background-color:grey;
+	color:white;
+}
+
+.about a{
+	color: white;
+}
+/*
+#service{
+	border: 1px solid grey;
+	background-color: lightgrey;
+	box-shadow: 5px 5px 5px #888888;	
+}
+
+#service div{
+	margin: 15px 15px;
+}*/
+
+.teamPic{
+	width: 212px;
+	height: 196px;
+}
+
+.header{
+	color: #36A0FF;
+	font-size: 27px;
+	padding: 10px;
+}
+
+.bigicon{
+	font-size: 35px;
+	color: #36A0FF;
+}
+
+.panel-primary{
+	box-shadow: 5px 5px 5px #888888!important;
+}
+
+.services{
+	margin-top: 15px;
+}
+
+.about{
+	height: 500px;
+}
+
+.jobCode{
+	border:1px solid black;
+	background-color:yellow;
+	color:black!important;
+}

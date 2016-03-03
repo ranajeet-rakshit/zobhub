@@ -1,0 +1,93 @@
+<div ng-controller='JobsController' class='container'>
+	<h2>View and manage Jobs</h2>
+	<button class='btn btn-primary' style='margin:20px 20px;' data-toggle="modal" data-target="#jobPostModal">Post new job</button>
+
+	<div class="panel-group" ng-repeat='postedJob in postedJobs'>
+		<div class="panel panel-primary">
+			<div class='panel-heading'>
+				<h3>Job Title: {{postedJob.jobTitle}}</h3>
+				<span class='jobCode' ng-hide='postedJob.job_code=="NA"'>Job Code: {{postedJob.job_code}}</span>
+			</div>
+			<div class="panel-body">
+				<p ng-hide='postedJob.jobDesc=="NA"'>Description: {{postedJob.jobDesc}}</p>
+				<ul>
+					<li>Company: {{postedJob.company}}</li>
+					<li>Location: {{postedJob.location}}</li>
+					<li ng-hide='postedJob.experience=="NA"'>Experience: {{postedJob.experience}}</li>
+					<li>Basic Salary: {{postedJob.basic_salary}}</li>
+					<li>Open Positions: {{postedJob.open_position}}</li>
+					<li>Interview Date: {{postedJob.interview_date}}</li>
+					<li>Minimum Qualification: {{postedJob.qualification}}</li>
+				</ul>
+			</div>
+			<div class='panel-footer' style='text-align:right;'>
+		      	<button class='btn btn-danger' ng-click='deleteJob(postedJob.jobID)'>Remove job posting</button>
+			</div>
+		</div>
+	</div>
+
+<!-- POST JOB MODAL -->
+	<div class="modal fade" id="jobPostModal" role="dialog">
+	<div class="modal-dialog">
+
+	  <!-- Modal content-->
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <h4 class="modal-title">Post a new Job..!</h4>
+	    </div>
+	    <div class="modal-body">
+	      <form name="form" role="form">
+			    <div class="form-group">
+			        <label for="title">Job Title</label>
+			        <input type="text" name="title" id="title" class="form-control" ng-model="newJob.title" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="description">Job Description</label>
+			        <textarea name="description" id="description" class="form-control" ng-model="newJob.description" required></textarea>
+			    </div>
+			    <div class="form-group">
+			        <label for="company">Company</label>
+			        <input type="text" name="company" id="company" class="form-control" ng-model="newJob.company" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="location">Location</label>
+			        <input type="text" name="location" id="location" class="form-control" ng-model="newJob.location" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="experience">Experience required</label>
+			        <input type="text" name="experience" id="experience" class="form-control" ng-model="newJob.experience" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="salary">Basic Salary</label>
+			        <input type="text" name="salary" id="salary" class="form-control" ng-model="newJob.basic_salary" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="positions">Open Positions</label>
+			        <input type="text" name="positions" id="positions" class="form-control" ng-model="newJob.open_position" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="code">Job Code</label>
+			        <input type="text" name="code" id="code" class="form-control" ng-model="newJob.job_code" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="interview">Interview Date</label>
+			        <input type="text" name="interview" id="interview" class="form-control" ng-model="newJob.interview_date" required />
+			    </div>
+			    <div class="form-group">
+			        <label for="qualification">Qualification</label>
+			        <input type="text" name="qualification" id="qualification" class="form-control" ng-model="newJob.qualification" required />
+			    </div>
+			</form>
+	    </div>
+	    <div class="modal-footer">
+	    	<button ng-disabled="form.$invalid" class="btn btn-primary" ng-click='jobSubmit()'>Post</button>
+			<button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+	    </div>
+	  </div>
+	  
+	</div>
+	</div>
+<!-- END OF POST JB MODAL -->
+
+</div>

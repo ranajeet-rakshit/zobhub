@@ -1,0 +1,25 @@
+<div ng-controller='LoginController'>
+	<md-dialog aria-label='Login' ng-cloak>
+		<div class='md-dialog-content'>
+			<md-content md-theme='docs-dark' layout-gt-sm='row' layout-padding>
+				<div>
+					<md-input-container>
+						<label>Email</label>
+						<input ng-model='userEmail'>
+					</md-input-container>
+					<md-input-container>
+						<label>Password</label>
+						<input type='password' ng-model='userPwd'>
+					</md-input-container>
+				</div>
+			</md-content>
+		</div>
+	</md-dialog>
+
+	<md-dialog-actions layout='row'>
+		<span flex></span>
+		<md-button ng-click='submit()'>Submit</md-button>
+		<md-button ng-click='cancel()'>Cancel</md-button>
+	</md-dialog-actions>
+	<span>{{LoginSuccess}}</span>
+</div>
